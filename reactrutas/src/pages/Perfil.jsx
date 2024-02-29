@@ -12,11 +12,9 @@ const Perfil = () => {
                     Perfil
                 </h1>
             } component={
-                <Myboton page={
-                    <Link to='/'>
-                        Inicio
-                    </Link>
-                }/>
+                <Link to="/">
+                    <Myboton page="inicio"/>
+                </Link>
             }/>
             <main className='md:flex '>
                 <Profile/>

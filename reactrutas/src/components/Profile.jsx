@@ -9,7 +9,6 @@ const Profile = () => {
             </div>
             <span className='flex justify-center items-center flex-col'>
                 <p className=' text-5xl font-extrabold w-1/2'>Emersson Ramirez Ruiz</p>
-                  <p className='font-extralight'>Seguidores : 0</p>
             </span>
 
         </div>)
