@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import Menu from "./components/Menu";
 import api from "./components/Api"
@@ -21,23 +22,26 @@ const ListarUsuario = () => {
         buscarUsuarios()
     }, [])
     return (
-        <div >
+        <div className='m-3 p-3'>
             <Menu />
+
+            <p className='font-bold'>
+                <Link to='/crearusuario'>Crear Usuario</Link>
+            </p>
+
+            <h1 className='text-center font-bold underline text-3xl'></h1>
 
             <h1 className="text-center font-bold underline text-3xl"></h1>
             {
                 usuarios.map((usuario) => (
-                    <div key={usuario.id}>
+                    <div key={usuario.id} >
 
                         Nombre del usuario :
                         <Link to={`/edit/${usuario.id}`}>
                             {usuario.nombre},
                         </Link>
 
-                        <span>
-                            <p>con correo : </p>
-                            {usuario.email}
-                        </span>
+
 
                     </div>
                 ))

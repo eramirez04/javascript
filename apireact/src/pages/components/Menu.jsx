@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
@@ -6,8 +7,8 @@ import { Link, Outlet } from "react-router-dom";
 const Menu = () => {
     return (
         <div>
-            <nav className="bg-sky-100">
-                <ul className="flex space-x-4 texr-white">
+            <nav className="bg-sky-500 p-4">
+                <ul className="flex space-x-4 text-white">
                     <li>
                         <Link to='/'>
                             Inicio
@@ -31,9 +32,8 @@ const Menu = () => {
                     </li>
                 </ul>
             </nav>
-            <Outlet />
+            <Outlet/>
         </div>
-
     )
 }
 
