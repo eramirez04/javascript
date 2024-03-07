@@ -43,7 +43,7 @@ const EditarUser = () => {
                 <h1 className='text-center font-bold underline text-3xl p-3 m-2'>Editar Usuario</h1>
                 <div className='max-w-xs'>
                     <input type='text' className='shadow appearance-none border rounded w-full p-2 m-2 text-gray-500 leading-tight'
-                           placeholder='name'
+                           placeholder='Name'
                            value={usuario.nombre}
                            onChange={(e) => setUsuario({...usuario, name: e.target.value})}
                     />

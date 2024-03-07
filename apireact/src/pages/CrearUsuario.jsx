@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Menu from "./components/Menu";
 
 import api from "./components/Api.jsx"
 
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CrearUsuario = () => {
     const [name, setName] = useState('')
@@ -15,40 +15,44 @@ const CrearUsuario = () => {
     const handleDefault = async (e) => {
         e.preventDefault()
         try {
-            const response = await api.post('/crear', {
-                nombre: name,
-                email: email,
-                password: password
-            }).finally(() => {
-                navigate('/listarusuario')
-            })
-            console.log(response.data.mensaje)
-            setName('')
-            setEmail('')
-            setPassword('')
+            if (name != '' & email != '' & password != '') {
+                const response = await api.post('/crear', {
+                    nombre: name,
+                    email: email,
+                    password: password
+                }).finally(() => {
+                    navigate('/listarusuario')
+                })
+                console.log(response.data.mensaje)
+                setName('')
+                setEmail('')
+                setPassword('')
+            }
+            else{
+                alert("Campos Vacios")
+            }
         } catch (e) {
-            console.error(e)
+            console.error(e.response.data.message)
         }
     }
 
     return (
         <div>
-            <Menu/>
-
+            <Menu />
             <div className='p-2'>
                 <h2 className=''>Crear Usuario</h2>
                 <div className='max-w-xs'>
                     <input type='text' className='shadow appearance-none border rounded w-full p-2 m-2 text-gray-500 leading-tight
                     '
-                           placeholder='Nombre' value={name} onChange={(e) => setName(e.target.value)}
+                        placeholder='Nombre' value={name} onChange={(e) => setName(e.target.value)}
                     />
                     <input type='text' className='shadow appearance-none border rounded w-full p-2 m-2 text-gray-500 leading-tight
                     '
-                           placeholder='Correo' value={email} onChange={(e) => setEmail(e.target.value)}
+                        placeholder='Correo' value={email} onChange={(e) => setEmail(e.target.value)}
                     />
-                    <input type='text' className='shadow appearance-none border rounded w-full p-2 m-2 text-gray-500 leading-tight
+                    <input type='password' className='shadow appearance-none border rounded w-full p-2 m-2 text-gray-500 leading-tight
                     '
-                           placeholder='Clave' value={password} onChange={(e) => setPassword(e.target.value)}
+                        placeholder='Clave' value={password} onChange={(e) => setPassword(e.target.value)}
                     />
                     <p className=''>
                         <button

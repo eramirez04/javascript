@@ -8,6 +8,7 @@ const Home = () => {
     return (
         <>
         <Menu/>
+        <h1 className="p-3 font-bold">Inicio</h1>
         </>
     )
 }
